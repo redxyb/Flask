@@ -1,7 +1,7 @@
 '''
 Author: xyb
 Date: 2020-08-09 15:26:09
-LastEditTime: 2020-08-09 21:23:26
+LastEditTime: 2020-08-10 08:12:28
 '''
 from flask import Flask
 from werkzeug.routing import BaseConverter
@@ -22,7 +22,12 @@ app = Flask(__name__,
 app.url_map.converters['re'] = Regex_url
 
 
-@app.route('/index/<re("[a-z]{3}"):id>', methods=["POST"])
+@app.route('/')
+def homepage():
+    return 'this is a home page'
+
+
+@app.route('/index/<re("[a-z]{3}"):id>', methods=["GET", "POST"])
 def index(id):
     return 'haha,this is %s' % id
 
