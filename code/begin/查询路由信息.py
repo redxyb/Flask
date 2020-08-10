@@ -1,7 +1,7 @@
 '''
 Author: xyb
 Date: 2020-08-09 15:26:09
-LastEditTime: 2020-08-10 08:12:28
+LastEditTime: 2020-08-10 09:10:53
 '''
 from flask import Flask
 from werkzeug.routing import BaseConverter
@@ -27,7 +27,7 @@ def homepage():
     return 'this is a home page'
 
 
-@app.route('/index/<re("[a-z]{3}"):id>', methods=["GET", "POST"])
+@app.route('/index/<re("[a-z]{3}"):id>', methods=["GET"])
 def index(id):
     return 'haha,this is %s' % id
 
